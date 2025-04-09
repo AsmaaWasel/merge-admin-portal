@@ -1,31 +1,14 @@
 import Image from "next/image";
-import { Headphones, MessageSquare } from "lucide-react";
+import Link from "next/link";
+import { Headphones, MessageSquare, Bell, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function Navbar() {
   return (
-    <header className="bg-blue-700 text-white p-2 flex items-center justify-between z-10">
-      <div className="flex items-center space-x-2">
-        <button className="p-2">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="lucide lucide-menu"
-          >
-            <line x1="4" x2="20" y1="12" y2="12" />
-            <line x1="4" x2="20" y1="6" y2="6" />
-            <line x1="4" x2="20" y1="18" y2="18" />
-          </svg>
-        </button>
-        <div className="flex items-center">
-          <div className="bg-white rounded-full p-1 mr-2">
+    <header className="bg-white py-3 px-4 flex items-center justify-between z-10 shadow-sm">
+      <div className="flex items-center space-x-3">
+        <Link href="/" className="flex items-center">
+          <div className="bg-blue-100 rounded-full p-1.5 mr-2">
             <Image
               src="/placeholder.svg?height=30&width=30"
               alt="Merge Logo"
@@ -34,16 +17,44 @@ export default function Navbar() {
               className="rounded-full"
             />
           </div>
-          <span className="text-xl font-bold">Merge</span>
-        </div>
+          <span className="text-xl font-semibold text-gray-800">Merge</span>
+        </Link>
       </div>
-      <div className="flex items-center space-x-2">
-        <Button variant="ghost" size="icon">
+
+      <div className="hidden md:flex items-center relative max-w-md w-full mx-8">
+        <Search className="absolute left-3 h-4 w-4 text-gray-400" />
+        <input
+          type="text"
+          placeholder="Search..."
+          className="w-full py-2 pl-10 pr-4 rounded-full bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-100 text-sm"
+        />
+      </div>
+
+      <div className="flex items-center space-x-3">
+        <Button
+          variant="ghost"
+          size="icon"
+          className="rounded-full text-gray-500 hover:text-blue-500 hover:bg-blue-50"
+        >
+          <Bell className="h-5 w-5" />
+        </Button>
+        <Button
+          variant="ghost"
+          size="icon"
+          className="rounded-full text-gray-500 hover:text-blue-500 hover:bg-blue-50"
+        >
           <Headphones className="h-5 w-5" />
         </Button>
-        <Button variant="ghost" size="icon">
+        <Button
+          variant="ghost"
+          size="icon"
+          className="rounded-full text-gray-500 hover:text-blue-500 hover:bg-blue-50"
+        >
           <MessageSquare className="h-5 w-5" />
         </Button>
+        <div className="h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-medium">
+          AD
+        </div>
       </div>
     </header>
   );

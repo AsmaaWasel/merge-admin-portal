@@ -3,48 +3,50 @@ import { Badge } from "@/components/ui/badge";
 
 export default function QueueMonitor() {
   return (
-    <div className="mb-4">
-      <div className="flex justify-between items-center mb-2">
-        <h2 className="text-lg font-semibold">Live Queue Monitor</h2>
-        <Badge variant="outline" className="bg-blue-100">
+    <div>
+      <div className="flex justify-between items-center mb-4">
+        <h3 className="text-lg font-medium text-gray-800">
+          Live Queue Monitor
+        </h3>
+        <Badge variant="outline" className="bg-blue-50 text-blue-600">
           4 Queue/s
         </Badge>
       </div>
 
-      <div className="mb-4">
-        <div className="flex items-center mb-2">
-          <span className="font-medium mr-2">Q: test</span>
-          <Badge variant="outline" className="bg-blue-100">
+      <div className="mb-5 p-4 rounded-lg bg-gray-50">
+        <div className="flex items-center mb-3">
+          <span className="font-medium text-gray-700 mr-2">Q: test</span>
+          <Badge variant="outline" className="bg-blue-50 text-blue-600">
             1 Agent/s
           </Badge>
         </div>
         <div className="flex">
-          <div className="flex items-center bg-gray-100 rounded-md p-2">
-            <User className="h-4 w-4 mr-2 text-blue-600" />
-            <span className="text-sm">abdelrhmanelsayed72</span>
+          <div className="flex items-center bg-white rounded-md p-2 shadow-sm">
+            <User className="h-4 w-4 mr-2 text-blue-500" />
+            <span className="text-sm text-gray-700">abdelrhmanelsayed72</span>
           </div>
         </div>
       </div>
 
-      <div>
-        <div className="flex items-center mb-2">
-          <span className="font-medium mr-2">Q: SIP Group</span>
-          <Badge variant="outline" className="bg-blue-100">
+      <div className="p-4 rounded-lg bg-gray-50">
+        <div className="flex items-center mb-3">
+          <span className="font-medium text-gray-700 mr-2">Q: SIP Group</span>
+          <Badge variant="outline" className="bg-blue-50 text-blue-600">
             3 Agent/s
           </Badge>
         </div>
         <div className="flex flex-wrap gap-2">
-          <div className="flex items-center bg-gray-100 rounded-md p-2">
-            <User className="h-4 w-4 mr-2 text-blue-600" />
-            <span className="text-sm">Mohamed Abdullah</span>
+          <div className="flex items-center bg-white rounded-md p-2 shadow-sm">
+            <User className="h-4 w-4 mr-2 text-blue-500" />
+            <span className="text-sm text-gray-700">Mohamed Abdullah</span>
           </div>
-          <div className="flex items-center bg-gray-100 rounded-md p-2">
-            <User className="h-4 w-4 mr-2 text-blue-600" />
-            <span className="text-sm">Aya Samir</span>
+          <div className="flex items-center bg-white rounded-md p-2 shadow-sm">
+            <User className="h-4 w-4 mr-2 text-blue-500" />
+            <span className="text-sm text-gray-700">Aya Samir</span>
           </div>
-          <div className="flex items-center bg-gray-100 rounded-md p-2">
-            <User className="h-4 w-4 mr-2 text-blue-600" />
-            <span className="text-sm">Marwa Nasser</span>
+          <div className="flex items-center bg-white rounded-md p-2 shadow-sm">
+            <User className="h-4 w-4 mr-2 text-blue-500" />
+            <span className="text-sm text-gray-700">Marwa Nasser</span>
           </div>
         </div>
       </div>

@@ -94,100 +94,104 @@ export default function Dashboard() {
   ]);
 
   return (
-    <div className="flex-1 overflow-auto p-4">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+    <div>
+      <h1 className="text-2xl font-semibold text-gray-800 mb-6">
+        Dashboard Overview
+      </h1>
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
         <StatCard
-          icon={<Users className="h-8 w-8 text-white" />}
+          icon={<Users className="h-5 w-5 text-blue-500" />}
           value="0"
           label="Dialers in Queue"
-          bgColor="bg-blue-600"
+          bgColor="bg-blue-50"
         />
         <StatCard
-          icon={<User className="h-8 w-8 text-white" />}
+          icon={<User className="h-5 w-5 text-blue-500" />}
           value="1"
           label="Callers"
-          bgColor="bg-blue-600"
+          bgColor="bg-blue-50"
         />
         <StatCard
-          icon={<Users className="h-8 w-8 text-white" />}
+          icon={<Users className="h-5 w-5 text-blue-500" />}
           value="1"
           label="All Calls"
-          bgColor="bg-blue-600"
+          bgColor="bg-blue-50"
         />
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
         <StatCard
-          icon={<Phone className="h-8 w-8 text-white" />}
+          icon={<Phone className="h-5 w-5 text-green-500" />}
           value="1"
           label="Success Calls"
-          bgColor="bg-green-500"
+          bgColor="bg-green-50"
         />
         <StatCard
-          icon={<Phone className="h-8 w-8 text-white" />}
+          icon={<Phone className="h-5 w-5 text-orange-500" />}
           value="0"
           label="Cancelled"
-          bgColor="bg-orange-500"
+          bgColor="bg-orange-50"
         />
         <StatCard
-          icon={<Phone className="h-8 w-8 text-white" />}
+          icon={<Phone className="h-5 w-5 text-red-500" />}
           value="0"
           label="Missed"
-          bgColor="bg-red-600"
+          bgColor="bg-red-50"
         />
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
         <StatCard
-          icon={<BarChart3 className="h-8 w-8 text-white" />}
+          icon={<BarChart3 className="h-5 w-5 text-blue-500" />}
           value="100.00 %"
           label="ASR"
-          bgColor="bg-blue-600"
+          bgColor="bg-blue-50"
         />
         <StatCard
-          icon={<BarChart3 className="h-8 w-8 text-white" />}
+          icon={<BarChart3 className="h-5 w-5 text-blue-500" />}
           value="0.00 %"
           label="FCR"
-          bgColor="bg-blue-600"
+          bgColor="bg-blue-50"
         />
         <StatCard
-          icon={<BarChart3 className="h-8 w-8 text-white" />}
+          icon={<BarChart3 className="h-5 w-5 text-blue-500" />}
           value="100.00 %"
           label="SL"
-          bgColor="bg-blue-600"
+          bgColor="bg-blue-50"
         />
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
         <StatCard
-          icon={<AlertCircle className="h-8 w-8 text-white" />}
+          icon={<AlertCircle className="h-5 w-5 text-blue-500" />}
           value="0.00 %"
           label="Abandoned"
-          bgColor="bg-blue-600"
+          bgColor="bg-blue-50"
         />
         <StatCard
-          icon={<Clock className="h-8 w-8 text-white" />}
+          icon={<Clock className="h-5 w-5 text-blue-500" />}
           value="00:00:00"
           label="ACD"
-          bgColor="bg-blue-600"
+          bgColor="bg-blue-50"
         />
         <StatCard
-          icon={<Clock className="h-8 w-8 text-white" />}
+          icon={<Clock className="h-5 w-5 text-blue-500" />}
           value="00:00:00"
           label="Total Duration"
-          bgColor="bg-blue-600"
+          bgColor="bg-blue-50"
         />
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-4">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
         <div className="lg:col-span-2">
-          <Card className="p-4">
+          <Card className="p-5 shadow-sm">
             <QueueMonitor />
             <CallTable calls={calls} />
           </Card>
         </div>
         <div className="lg:col-span-1">
-          <div className="space-y-4">
+          <div className="space-y-5">
             {agents.map((agent) => (
               <AgentCard key={agent.id} agent={agent} />
             ))}

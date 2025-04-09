@@ -6,6 +6,7 @@ interface StatCardProps {
   value: string;
   label: string;
   bgColor: string;
+  textColor?: string;
 }
 
 export default function StatCard({
@@ -13,14 +14,17 @@ export default function StatCard({
   value,
   label,
   bgColor,
+  textColor = "text-gray-700",
 }: StatCardProps) {
   return (
-    <Card className={`${bgColor} text-white overflow-hidden`}>
-      <div className="p-4 flex items-center">
-        <div className="mr-4">{icon}</div>
-        <div>
-          <div className="text-2xl font-bold">{value}</div>
-          <div className="text-sm">{label}</div>
+    <Card className="overflow-hidden shadow-sm">
+      <div className="p-5">
+        <div className="flex items-center">
+          <div className={`mr-4 p-3 rounded-lg ${bgColor}`}>{icon}</div>
+          <div>
+            <div className={`text-2xl font-semibold ${textColor}`}>{value}</div>
+            <div className="text-sm text-gray-500">{label}</div>
+          </div>
         </div>
       </div>
     </Card>

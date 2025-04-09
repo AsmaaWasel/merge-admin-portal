@@ -1,7 +1,5 @@
 "use client";
 
-import type React from "react";
-
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import {
@@ -12,86 +10,80 @@ import {
   Calendar,
   Image,
   Settings,
+  HelpCircle,
 } from "lucide-react";
 
 export default function Sidebar() {
   const pathname = usePathname();
 
   const routes = [
-    { icon: <Home className="h-6 w-6" />, path: "/", label: "Dashboard" },
+    { icon: <Home className="h-5 w-5" />, path: "/", label: "Dashboard" },
     {
-      icon: <Users className="h-6 w-6" />,
-      path: "/dashboard/agents",
+      icon: <Users className="h-5 w-5" />,
+      path: "dashboard/agents",
       label: "Agents",
     },
     {
-      icon: <Headphones className="h-6 w-6" />,
-      path: "/dashboard/calls",
+      icon: <Headphones className="h-5 w-5" />,
+      path: "/calls",
       label: "Calls",
     },
     {
-      icon: <BarChart3 className="h-6 w-6" />,
-      path: "/dashboard/reports",
+      icon: <BarChart3 className="h-5 w-5" />,
+      path: "/reports",
       label: "Reports",
     },
-
     {
-      icon: <Calendar className="h-6 w-6" />,
-      path: "/dashboard/schedule",
+      icon: <Calendar className="h-5 w-5" />,
+      path: "/schedule",
       label: "Schedule",
     },
+    { icon: <Image className="h-5 w-5" />, path: "/media", label: "Media" },
     {
-      icon: <Image className="h-6 w-6" />,
-      path: "dashboard/media",
-      label: "Media",
-    },
-    {
-      icon: <Settings className="h-6 w-6" />,
-      path: "/dashboard/settings",
+      icon: <Settings className="h-5 w-5" />,
+      path: "/settings",
       label: "Settings",
     },
   ];
 
   return (
-    <aside className="w-16 bg-white border-r flex flex-col items-center py-4 hidden md:flex">
+    <aside className="w-16 bg-white flex flex-col items-center py-6 hidden md:flex">
       <div className="flex flex-col items-center space-y-6">
         {routes.map((route) => (
-          <SidebarIcon
-            key={route.path}
-            icon={route.icon}
-            path={route.path}
-            label={route.label}
-            active={pathname === route.path}
-          />
+          <Link href={route.path} key={route.path}>
+            <div
+              className={`p-2.5 rounded-xl cursor-pointer relative group transition-all duration-200 ${
+                pathname === route.path
+                  ? "text-blue-500 bg-blue-50"
+                  : "text-gray-500 hover:text-blue-500 hover:bg-blue-50"
+              }`}
+              title={route.label}
+            >
+              {route.icon}
+              <div className="absolute left-full ml-2 px-2 py-1 bg-gray-800 text-white text-xs rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity whitespace-nowrap z-50">
+                {route.label}
+              </div>
+            </div>
+          </Link>
         ))}
       </div>
-    </aside>
-  );
-}
-
-interface SidebarIconProps {
-  icon: React.ReactNode;
-  path: string;
-  label: string;
-  active?: boolean;
-}
-
-function SidebarIcon({ icon, path, label, active = false }: SidebarIconProps) {
-  return (
-    <Link href={path}>
-      <div
-        className={`p-2 rounded-lg cursor-pointer relative group ${
-          active
-            ? "text-blue-600 bg-blue-100"
-            : "text-gray-500 hover:bg-gray-100"
-        }`}
-        title={label}
-      >
-        {icon}
-        <div className="absolute left-full ml-2 px-2 py-1 bg-gray-800 text-white text-xs rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity whitespace-nowrap">
-          {label}
-        </div>
+      <div className="mt-auto mb-6">
+        <Link href="/help">
+          <div
+            className={`p-2.5 rounded-xl cursor-pointer relative group transition-all duration-200 ${
+              pathname === "/help"
+                ? "text-blue-500 bg-blue-50"
+                : "text-gray-500 hover:text-blue-500 hover:bg-blue-50"
+            }`}
+            title="Help & Support"
+          >
+            <HelpCircle className="h-5 w-5" />
+            <div className="absolute left-full ml-2 px-2 py-1 bg-gray-800 text-white text-xs rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity whitespace-nowrap z-50">
+              Help & Support
+            </div>
+          </div>
+        </Link>
       </div>
-    </Link>
+    </aside>
   );
 }
